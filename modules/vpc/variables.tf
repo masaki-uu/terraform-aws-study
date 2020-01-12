@@ -7,3 +7,8 @@ variable "num_subnets" {
   description = "The number subnets."
   default     = "2"
 }
+
+variable "aws_proxy_ip_address" {
+  description = "A list of IP address of AWS proxy."
+  type        = list(string)
+}
