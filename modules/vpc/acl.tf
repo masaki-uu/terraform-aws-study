@@ -1,5 +1,6 @@
 resource "aws_default_network_acl" "public" {
   default_network_acl_id = aws_vpc.this.default_network_acl_id
+  subnet_ids = aws_subnet.public[*].id
 
   ingress {
     protocol   = "tcp"

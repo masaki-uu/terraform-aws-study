@@ -1,4 +1,4 @@
-resource "aws_subnet" "main" {
+resource "aws_subnet" "public" {
   count = var.num_subnets
 
   vpc_id     = aws_vpc.this.id
