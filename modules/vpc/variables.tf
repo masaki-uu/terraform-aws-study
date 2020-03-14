@@ -5,5 +5,9 @@ variable "vpc_cidr_block" {
 
 variable "num_subnets" {
   description = "The number subnets."
-  default     = "2"
+  default     = "3"
+}
+
+locals {
+  base_name = "dev"
 }
