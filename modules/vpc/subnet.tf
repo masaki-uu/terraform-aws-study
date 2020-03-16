@@ -10,7 +10,7 @@ resource "aws_subnet" "public" {
   cidr_block        = cidrsubnet(var.vpc_cidr_block, 8, count.index)
 
   tags = {
-    Name = "${local.base_name}-subnet-public-${count.index}"
+    Name = "${local.name_prefix}-subnet-public-${count.index}"
   }
 }
 
@@ -22,6 +22,6 @@ resource "aws_subnet" "private" {
   cidr_block        = cidrsubnet(var.vpc_cidr_block, 8, var.num_subnets + count.index)
 
   tags = {
-    Name = "${local.base_name}-subnet-private-${count.index}"
+    Name = "${local.name_prefix}-subnet-private-${count.index}"
   }
 }

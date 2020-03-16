@@ -30,6 +30,6 @@ resource "aws_default_network_acl" "public" {
   }
 
   tags = {
-    Name = "${local.base_name}-nacl-public"
+    Name = "${local.name_prefix}-nacl-public"
   }
 }

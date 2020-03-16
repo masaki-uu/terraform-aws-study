@@ -4,7 +4,7 @@ resource "aws_eip" "this" {
   vpc = true
 
   tags = {
-    Name = "${local.base_name}-eip-${count.index}"
+    Name = "${local.name_prefix}-eip-${count.index}"
   }
 }
 
@@ -15,6 +15,6 @@ resource "aws_nat_gateway" "this" {
   subnet_id     = aws_subnet.public[count.index].id
 
   tags = {
-    Name = "${local.base_name}-ngw-${count.index}"
+    Name = "${local.name_prefix}-ngw-${count.index}"
   }
 }
