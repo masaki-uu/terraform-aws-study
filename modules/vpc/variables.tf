@@ -8,6 +8,10 @@ variable "num_subnets" {
   default     = "3"
 }
 
+variable "name_prefix" {
+  description = "Name tag prefix."
+}
+
 locals {
-  base_name = "dev"
+  name_prefix = var.name_prefix
 }

@@ -20,6 +20,24 @@ resource "aws_default_network_acl" "public" {
     to_port    = 443
   }
 
+  ingress {
+    protocol   = -1
+    rule_no    = 120
+    action     = "allow"
+    cidr_block = var.vpc_cidr_block
+    from_port  = 0
+    to_port    = 0
+  }
+
+  ingress {
+    protocol   = "tcp"
+    rule_no    = 130
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 1024
+    to_port    = 65535
+  }
+
   egress {
     protocol   = -1
     rule_no    = 100
@@ -30,6 +48,6 @@ resource "aws_default_network_acl" "public" {
   }
 
   tags = {
-    Name = "${local.base_name}-nacl-public"
+    Name = "${local.name_prefix}-nacl-public"
   }
 }
