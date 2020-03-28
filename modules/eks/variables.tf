@@ -24,6 +24,16 @@ variable "eks_cluster_version" {
   default     = "1.14"
 }
 
+variable "node_groups" {
+  description = "The definition of node groups."
+  type        = list(map(string))
+
+  default = [
+    {
+    },
+  ]
+}
+
 variable "name_prefix" {
   description = "Name tag prefix."
 }
@@ -31,4 +41,12 @@ variable "name_prefix" {
 locals {
   name_prefix  = var.name_prefix
   cluster_name = "${var.name_prefix}-cluster"
+  node_group_default = {
+    gpu            = false
+    desired_size   = 2
+    max_size       = 3
+    min_size       = 1
+    instance_types = "t3.medium"
+    disk_size      = 20
+  }
 }
