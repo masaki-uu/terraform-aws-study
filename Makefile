@@ -18,11 +18,6 @@ kubeconfig:
 switch-context:
 	@kubectl config use-context eks
 
-aws-auth:
-	@terraform output -state=config/$(env)/terraform.tfstate aws_auth > _aws_auth.yaml
-	@kubectl apply -f _aws_auth.yaml
-	@rm -f _aws_auth.yaml
-
 destroy-plan:
 	@cd config/$(env) && \
 	terraform plan -destroy

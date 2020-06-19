@@ -27,11 +27,6 @@ $ make kubeconfig
 $ make switch-context
 ```
 
-### Create configmap/aws-auth
-```sh
-$ make aws-auth
-```
-
 ### Destroy plan
 ```sh
 $ make destroy-plan
