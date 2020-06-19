@@ -1,5 +1,9 @@
-output "eks_configmap" {
-  value = local.eks_configmap
+output "kubeconfig" {
+  value = local.kubeconfig
+}
+
+output "aws_auth" {
+  value = local.aws_auth
 }
 
 output "cluster_name" {
