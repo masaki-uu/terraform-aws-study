@@ -12,6 +12,16 @@ variable "name_prefix" {
   description = "Name tag prefix."
 }
 
-locals {
-  name_prefix = var.name_prefix
+variable "public_nacl_add_ingress_rules" {
+  description = "Public network ACL additional ingress rules."
+  type        = list(map(string))
+  default     = [
+    {
+      protocol   = "tcp"
+      action     = "allow"
+      cidr_block = "0.0.0.0/0"
+      from_port  = 443
+      to_port    = 443
+    },
+  ]
 }
