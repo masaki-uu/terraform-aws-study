@@ -1,5 +1,13 @@
 resource "aws_default_network_acl" "private" {
-  default_network_acl_id     = aws_vpc.this.default_network_acl_id
+  default_network_acl_id = aws_vpc.this.default_network_acl_id
+
+  tags = {
+    Name = "${local.name_prefix}-nacl-default"
+  }
+}
+
+resource "aws_network_acl" "private" {
+  vpc_id     = aws_vpc.this.id
   subnet_ids = aws_subnet.private[*].id
 
   egress {
@@ -19,7 +27,7 @@ resource "aws_default_network_acl" "private" {
 resource "aws_network_acl_rule" "private" {
   count = length(local.private_nacl_ingress_rules)
 
-  network_acl_id = aws_default_network_acl.private.id
+  network_acl_id = aws_network_acl.private.id
   rule_number    = (count.index + 1) * 10
   egress         = false
   protocol       = local.private_nacl_ingress_rules[count.index]["protocol"]
