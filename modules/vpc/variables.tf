@@ -15,7 +15,7 @@ variable "name_prefix" {
 variable "public_nacl_add_ingress_rules" {
   description = "Public network ACL additional ingress rules."
   type        = list(map(string))
-  default     = [
+  default = [
     {
       protocol   = "tcp"
       action     = "allow"
