@@ -1,7 +1,3 @@
-output "kubeconfig" {
-  value = local.kubeconfig
-}
-
 output "aws_auth" {
   value = local.aws_auth
 }
