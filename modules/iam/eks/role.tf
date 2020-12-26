@@ -22,11 +22,6 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
   role       = aws_iam_role.eks_master_role.name
 }
 
-resource "aws_iam_role_policy_attachment" "eks_service_policy" {
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
-  role       = aws_iam_role.eks_master_role.name
-}
-
 resource "aws_iam_role" "eks_node_role" {
   name = "EKSWorkerNodeRole"
 
