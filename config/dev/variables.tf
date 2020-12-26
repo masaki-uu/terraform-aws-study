@@ -12,3 +12,19 @@ variable "name_prefix" {
   description = "This is prefix for name tag."
   default     = "dev"
 }
+
+variable "node_groups" {
+  description = "The definition of node groups."
+  type        = list(map(string))
+
+  default = [
+    {
+      gpu            = false
+      disk_size      = 20
+      desired_size   = 1
+      max_size       = 1
+      min_size       = 1
+      instance_types = "t3.medium"
+    },
+  ]
+}

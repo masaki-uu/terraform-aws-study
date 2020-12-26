@@ -20,4 +20,5 @@ module "eks" {
   eks_master_role_arn      = module.iam_eks.eks_master_role_arn
   eks_node_role_arn        = module.iam_eks.eks_node_role_arn
   eks_node_role_profile_id = module.iam_eks.eks_node_role_profile_id
+  node_groups              = var.node_groups
 }
