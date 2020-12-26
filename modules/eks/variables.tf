@@ -21,7 +21,7 @@ variable "eks_node_role_profile_id" {
 
 variable "eks_cluster_version" {
   description = "The version of EKS Cluster."
-  default     = "1.14"
+  default     = "1.17"
 }
 
 variable "node_groups" {
