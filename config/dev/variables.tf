@@ -5,7 +5,7 @@ variable "region" {
 
 variable "profile" {
   description = "This is the AWS profile name as set in the shared credentials file."
-  default     = "eks-admin"
+  default     = "eks-build"
 }
 
 variable "name_prefix" {
