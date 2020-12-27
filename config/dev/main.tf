@@ -23,3 +23,12 @@ module "eks" {
   eks_node_role_profile_id = module.iam_eks.eks_node_role_profile_id
   node_groups              = var.node_groups
 }
+
+# EFS
+module "efs" {
+  source = "../../modules/efs"
+
+  name_prefix = var.name_prefix
+  vpc_id      = module.vpc.vpc_id
+  subnet_ids  = module.vpc.private_subnet_ids
+}
