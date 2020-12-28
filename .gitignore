@@ -30,6 +30,3 @@ override.tf.json
 
 # aws-auth configmap manifest file
 _aws_auth.yaml
-
-# kubeconfig
-kubeconfig
