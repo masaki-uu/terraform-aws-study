@@ -7,7 +7,7 @@ module "vpc" {
 
 # IAM for EKS
 module "iam_eks" {
-  source = "../../modules/iam/eks"
+  source = "../../modules/eks/iam"
 }
 
 # EKS
