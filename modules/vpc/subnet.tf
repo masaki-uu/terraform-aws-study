@@ -11,6 +11,7 @@ resource "aws_subnet" "public" {
 
   tags = {
     Name = "${local.name_prefix}-subnet-public-${count.index}"
+    "kubernetes.io/role/elb" = 1
   }
 }
 
@@ -23,5 +24,6 @@ resource "aws_subnet" "private" {
 
   tags = {
     Name = "${local.name_prefix}-subnet-private-${count.index}"
+    "kubernetes.io/role/internal-elb" = 1
   }
 }

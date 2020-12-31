@@ -4,7 +4,7 @@ resource "aws_eks_node_group" "this" {
   cluster_name    = aws_eks_cluster.this.name
   node_group_name = "${local.name_prefix}-node-group-${count.index}"
   node_role_arn   = var.eks_node_role_arn
-  subnet_ids      = var.subnet_ids
+  subnet_ids      = var.private_subnet_ids
 
   ami_type       = lookup(var.node_groups[count.index], "gpu") ? "AL2_x86_64_GPU" : "AL2_x86_64"
   disk_size      = lookup(var.node_groups[count.index], "disk_size")

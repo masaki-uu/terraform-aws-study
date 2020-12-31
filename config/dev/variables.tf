@@ -13,6 +13,11 @@ variable "name_prefix" {
   default     = "dev"
 }
 
+variable "root_domain_name" {
+  description = "This is the name of root domain."
+  default     = "uenoma.com"
+}
+
 variable "node_groups" {
   description = "The definition of node groups."
   type        = list(map(string))

@@ -6,8 +6,13 @@ variable "vpc_id" {
   description = "The VPC id"
 }
 
-variable "subnet_ids" {
-  description = "The subnet ids of nodes."
+variable "public_subnet_ids" {
+  description = "The public subnet ids."
+  type        = list(string)
+}
+
+variable "private_subnet_ids" {
+  description = "The private subnet ids."
   type        = list(string)
 }
 
