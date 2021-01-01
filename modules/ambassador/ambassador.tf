@@ -70,4 +70,8 @@ resource "helm_release" "ambassador" {
     name = "service.ports[1].nodePort"
     value = "30443"
   }
+
+  provisioner "local-exec" {
+    command = "sleep 30"
+  }
 }
